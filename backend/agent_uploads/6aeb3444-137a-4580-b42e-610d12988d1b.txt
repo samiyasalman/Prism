@@ -1,0 +1,29 @@
+BANK OF AMERICA - MONTHLY STATEMENT
+Account Number: ****4521
+Statement Period: January 1, 2025 - January 31, 2025
+Account Holder: Maria Garcia
+
+DEPOSITS AND CREDITS
+01/01/2025  Payroll Deposit - TechCorp Inc.          +$5,200.00
+01/15/2025  Payroll Deposit - TechCorp Inc.          +$5,200.00
+01/22/2025  Venmo Transfer                           +$150.00
+
+WITHDRAWALS AND DEBITS
+01/03/2025  Rent Payment - Skyline Apartments        -$1,800.00
+01/05/2025  Con Edison - Utility Bill                 -$142.50
+01/05/2025  Spectrum Internet                         -$79.99
+01/10/2025  Chase Credit Card Payment                 -$500.00
+01/12/2025  Progressive Insurance - Auto              -$185.00
+01/15/2025  Student Loan - Navient                    -$450.00
+01/20/2025  Whole Foods Market                        -$287.33
+01/25/2025  Amazon.com                                -$156.78
+01/28/2025  AT&T Wireless                             -$95.00
+
+SUMMARY
+Beginning Balance:                    $12,450.00
+Total Deposits:                       $10,550.00
+Total Withdrawals:                    -$3,696.60
+Ending Balance:                       $19,303.40
+
+Outstanding Loan Balance (Student):   $28,500.00
+Credit Card Balance (Chase Visa):     $2,340.00

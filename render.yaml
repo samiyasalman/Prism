@@ -1,0 +1,51 @@
+databases:
+  - name: trustbridge-db
+    plan: free
+    databaseName: trustbridge
+    user: trustbridge
+
+services:
+  - type: web
+    name: trustbridge-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: TB_DATABASE_URL
+        fromDatabase:
+          name: trustbridge-db
+          property: connectionString
+        # Render provides postgresql:// — override scheme to postgresql+asyncpg://
+        # at runtime via the preDeployCommand wrapper below
+      - key: TB_DATABASE_URL_SYNC
+        fromDatabase:
+          name: trustbridge-db
+          property: connectionString
+      - key: TB_JWT_SECRET
+        generateValue: true
+      - key: TB_FRONTEND_URL
+        fromService:
+          name: trustbridge-frontend
+          type: web
+          property: url
+      - key: TB_RSA_PRIVATE_KEY_B64
+        sync: false
+      - key: TB_RSA_PUBLIC_KEY_B64
+        sync: false
+    preDeployCommand: |
+      export TB_DATABASE_URL=$(echo "$TB_DATABASE_URL" | sed 's|^postgresql://|postgresql+asyncpg://|')
+      alembic upgrade head
+
+  - type: web
+    name: trustbridge-frontend
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    plan: free
+    envVars:
+      - key: BACKEND_URL
+        fromService:
+          name: trustbridge-backend
+          type: web
+          property: url
